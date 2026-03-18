@@ -1,14 +1,13 @@
-
-import java.util.Scanner;
-
-
 public class HelloApp {
-    public static void main(String[] args){
-        
-        
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
+    public static void main(String[] args) {
+        // Default name
+        String name = "World";
+
+        // Check if a name is provided as a command-line argument
+        if (args.length > 0) {
+            name = args[0]; // Use the provided name
+        }
+
         System.out.println("Hello, " + name + "!");
     }
 }

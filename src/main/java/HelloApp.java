@@ -25,24 +25,26 @@
 // 8. String Concatenation: Joining multiple strings with a delimiter (comma and space)
 // 
 
-public class HelloApp{
+public class HelloApp {
     public static void main(String[] args) {
-        
-        if (args.length > 0) {
-            
-            StringBuilder newBuilder = new StringBuilder("Hello, ");
-            for (int i = 0; i < args.length; i++) {
-                newBuilder.append(args[i]);
-                if (i < args.length - 1) {
-                    newBuilder.append(", "); 
-                }
-            }
-            newBuilder.append("!"); 
-            System.out.println(newBuilder.toString()); 
-        } else {
-            
-            System.out.println("Hello, World!");
-        }
-    }
 
+        StringBuilder builder = new StringBuilder("Hello, ");
+
+        if (args.length == 0) {
+            builder.append("World");
+        } else {
+            boolean first = true;
+
+            for (String name : args) {
+                if (!first) {
+                    builder.append(", ");
+                }
+                builder.append(name);
+                first = false;
+            }
+        }
+
+        builder.append("!");
+        System.out.println(builder.toString());
+    }
 }
